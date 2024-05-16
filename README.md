@@ -1,7 +1,57 @@
 # Guide d'utilisation de l'application Life Manager
 
+## Avant toute chose 
 
-## Lancement de l'API
+Supprimer le fichier ```Life_Manager\LifeManager.db```
+
+Modifier le fichier ``` Life_Manager\Main.go```
+
+```go
+package main
+
+import (
+	LifeManager "LifeManager/API"
+	LifeManagerdb "LifeManager/Script/DataBase"
+)
+
+func main() {
+	LifeManagerdb.Create()
+	LifeManagerdb.CreateCategorieCourse()
+	LifeManagerdb.CreateCategorieDepense()
+	LifeManagerdb.CreateSousCategorieDepense()
+	LifeManager.API()
+}
+```
+
+Lancer l'API grâce à [Lancement de l'Api](#lancement-de-l'api)
+
+Puis remodifier le ficher ``` Life_Manager\Main.go``` pour pas qu'il n'y ai pas d'erreur (pour le moment je n'est pas fait la verifie pour pas que les categories soit ajouter plusieurs fois)
+
+```go
+package main
+
+import (
+	LifeManager "LifeManager/API"
+	LifeManagerdb "LifeManager/Script/DataBase"
+)
+
+func main() {
+	LifeManagerdb.Create()
+	//LifeManagerdb.CreateCategorieCourse()
+	//LifeManagerdb.CreateCategorieDepense()
+	//LifeManagerdb.CreateSousCategorieDepense()
+	LifeManager.API()
+}
+```
+
+Lancer l'application grâce à [Lancement de l'application](#lancement-de-l'application)
+
+Ce register pour la première fois puis ce login. (garder le compte pour le login a chaque fois car pas de gestion de multi-compte pour le moment).
+
+Maintenant tu peux gérer presque toute ta vie
+
+
+# Lancement de l'API
 
 Pour lancer l'API de Life Manager :
 
